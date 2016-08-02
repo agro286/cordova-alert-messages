@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='utf-8'?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+        id="cordova-alert-messages"
+        version="0.0.2">
+    <name>AlertMessages</name>
+    <description>Cordova Alert Message Plugin</description>
+
+    <js-module name="AlertMessages" src="www/AlertMessages.js">
+        <clobbers target="alertMessages" />
+    </js-module>
+
+    <platform name="ios">
+        <config-file target="config.xml" parent="/*">
+            <feature name="AlertMessages">
+                <param name="ios-package" value="AlertMessages" />
+            </feature>
+        </config-file>
+        <source-file src="src/ios/AlertMessages.swift" />
+    </platform>
+
+    <platform name="android">
+        <config-file target="config.xml" parent="/*">
+            <feature name="AlertMessages">
+                <param name="android-package" value="AlertMessages" />
+            </feature>
+        </config-file>
+        <source-file src="src/android/AlertMessages.java" target-dir="src/" />
+    </platform>
+
+    <platform name="browser">
+        <config-file target="config.xml" parent="/*">
+            <feature name="AlertMessages">
+                <param name="browser-package" value="AlertMessages" />
+            </feature>
+        </config-file>  
+        <js-module src="src/browser/AlertMessagesProxy.js" name="AlertMessagesProxy">
+            <runs />
+        </js-module>
+    </platform>
+</plugin>
